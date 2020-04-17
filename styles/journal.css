@@ -2,3 +2,8 @@ body{
 display:flex;
 flex-direction: column;
 }
+
+.single-entry {
+    border: 1px solid black;
+    margin: 1em;
+}
