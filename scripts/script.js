@@ -1,63 +1,52 @@
-const journalEntry = {
-    date: "04/12/2020",
-    concept: "DOM Building",
-    entry: "Had a hard time with this but finally got it!!",
-    mood: "Tired"
+import DomPrinter from './DOMPrinter.js'
+import APIManager from './APIManager.js'
 
-}
-const journalEntry2 = {
-    date: "04/01/2020",
-    concept: "Arrays",
-    entry: "Oh, boy! Arrays!!",
-    mood: "flat"
+/*    Main application logic that uses the functions and objects
+    defined in the other JavaScript files.
 
-}
-const journalEntry3 = {
-    date: "04/15/2020",
-    concept: "Tax Day",
-    entry: "We are under quarantine, so we have until July 15th",
-    mood: "Happy"
+    call the method within DOMPrinter
+    to get the data and display it.
+*/
+DomPrinter.renderJournalEntries()
+//     .then((myParsedRestaurants) => {
+//          printAllRestaurants(myParsedRestaurants)
+// });
 
-}
+document.querySelector("#journalSubmitbtn").addEventListener("click", function () {
+    let entryDate = document.querySelector("#journalDate").value
+    let entryConcept = document.querySelector("#journalConcepts").value
+    let entryEntry = document.querySelector("#journalEntry").value
+    let entryMood = document.getElementById("journalMood").value
 
-const journalEntries = []
+    console.log(entryDate, entryConcept, entryEntry, entryMood)
 
-const createJournalArray = () => {
+    const journalEntryObject = {
+        date: entryDate,
+        concept: entryConcept,
+        entry: entryEntry,
+        mood: entryMood
+    }
 
-    journalEntries.push(journalEntry)
-    journalEntries.push(journalEntry2)
-    journalEntries.push(journalEntry3)
+    fetch("http://localhost:3000/entries", { // Replace "url" with your API's URL
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(journalEntryObject)
+    }).then(function () {
+        document.querySelector(".entryLog").innerHTML = ""
+        APIManager.getJournalEntries()
+            .then((parsedEntries) => {
+                parsedEntries.forEach(entry => {
+                    document.querySelector(".entryLog").innerHTML +=
+                        JournalEntry.makeJournalEntryComponent(entry.date, entry.concept, entry.entry, entry.mood)
+                })
 
-}
-createJournalArray()
-console.log(journalEntries)
+            })
+    })
+});
 
-// const retrieveJournalEntry = (date,concept,entry,mood) =>{
-//     date=document.querySelector.journalDate.name
-//     console.log(date)
-//  }
 
-const makeJournalEntryComponent = (journalEntry) => {
-    return `
-    <section class="single-entry">
-        <h1>${journalEntry.date}</h1>
-        <h3>${journalEntry.concept}</h3>
-        <p>${journalEntry.entry}</p>
-        <h4>I feel ${journalEntry.mood}</h4>
-     </section>`
-}
 
-const renderJournalEntries = (journalEntries) => {
-  for(singleEntry of journalEntries){
-      let domEnter = makeJournalEntryComponent(singleEntry)
-      document.querySelector(".entryLog").innerHTML += domEnter
- }
 
-//  for (let i = 0; i < journalEntries.length; i++) {
-//      let journalEntryComponent = makeJournalEntryComponent(journalEntries[i])
-//      document.querySelector(".entryLog").innerHTML += journalEntryComponent
-//  }
-}
-
-renderJournalEntries(journalEntries)
 

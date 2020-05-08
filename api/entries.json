@@ -1,0 +1,60 @@
+{
+  "entries": [
+    {
+      "id": 1,
+      "date": "04/12/2020",
+      "concept": "DOM Building",
+      "entry": "Had a hard time with this but finally got it!!",
+      "mood": "Tired"
+    },
+    {
+      "id": 2,
+      "date": "04/01/2020",
+      "concept": "Arrays",
+      "entry": "Oh, boy! Arrays!!",
+      "mood": "flat"
+    },
+    {
+      "id": 3,
+      "date": "04/15/2020",
+      "concept": "Tax Day",
+      "entry": "We are under quarantine, so we have until July 15th",
+      "mood": "Happy"
+    },
+    {
+      "date": "07/24/2018",
+      "concept": "Array methods",
+      "entry": "We learned about array methods, but only forEach made sense",
+      "mood": "Ok",
+      "id": 4
+    },
+    {
+      "date": "05/08/2020",
+      "concept": "JSON Server",
+      "entry": "learned how to read data from JSON database",
+      "mood": "Happy",
+      "id": 5
+    },
+    {
+      "date": "2020-05-06",
+      "concept": "JSON server",
+      "entry": "Getting data from external API",
+      "mood": "energized",
+      "id": 6
+    },
+    {
+      "date": "2020-05-07",
+      "concept": "User Input",
+      "entry": "Covered capturing User input and writing it to the console",
+      "mood": "flat",
+      "id": 7
+    },
+    {
+      "date": "05/01/2020",
+      "concept": "Modular concepts",
+      "entry": "refactored restaurants json exercise to be modular",
+      "mood": "sad",
+      "id": 8
+    }
+  ]
+}

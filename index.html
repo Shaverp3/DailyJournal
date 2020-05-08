@@ -11,10 +11,10 @@
 <body>
     <h1>Daily Journal</h1>
 
-    <form action="">
+    <form action="" id="journalForm">
         <fieldset>
             <label for="journalDate">Date of Entry</label>
-            <input type="date" name="journalDate" id="journalDate">
+            <input type="text" name="journalDate" id="journalDate" placeholder="mm/dd/yyyy">
         </fieldset>
         <fieldset>
             <label for="journalConcepts">Concepts Covered</label>
@@ -33,13 +33,14 @@
                 <option value="energized">Energized</option>
             </select>
         </fieldset>
-            <button type="submit">Record Journal Entry</button>
-            <label for="journalSubmit"></label>
     </form>
+            <button id="journalSubmitbtn" type="submit">Record Journal Entry</button>
+            <label for="journalSubmit"></label>
+    
     <article class="entryLog">
 
     </article>   
-<script src="scripts/script.js"></script>
+<script type="module" src="scripts/script.js"></script>
 </body>
 
 </html>
