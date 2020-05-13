@@ -36,7 +36,28 @@
     </form>
             <button id="journalSubmitbtn" type="submit">Record Journal Entry</button>
             <label for="journalSubmit"></label>
-    
+    <form action="" id="moodForm">
+        <fieldset>
+            <legend>Filter journal entries by Mood:</legend>
+            <div id="moodChoices">
+              <input type="radio" id="moodChoice1"
+               name="happy" value="happyRadio">
+              <label for="moodChoice1">Happy</label>
+          
+              <input type="radio" id="moodChoice2"
+               name="sad" value="sadRadio">
+              <label for="moodChoice2">Sad</label>
+          
+              <input type="radio" id="moodChoice3"
+               name="flat" value="flatRadio">
+               <label for="moodChoice3">Flat</label>
+
+               <input type="radio" id="moodChoice4"
+               name="energized" value="energizedRadio">
+              <label for="moodChoice4">Energized</label>
+ 
+            </div>
+    </form>
     <article class="entryLog">
 
     </article>   
