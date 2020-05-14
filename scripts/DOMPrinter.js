@@ -1,23 +1,22 @@
-import APIManager from './APIManager.js'
+import APIManager from './apiManager.js'
 import JournalEntry from './singleJournalEntry.js'
 
 const DomPrinter = {
 
-    renderJournalEntries() {
+    renderJournalEntries: () => {
         // method from APIManager that accesses the data goes here
-        APIManager.getJournalEntries()
+    APIManager.getJournalEntries() 
             // Then you need to use the returned data
-            .then(parsedEntries => {
-                parsedEntries.forEach(entry => {
-                    if (entry.date) {
-                        document.querySelector(".entryLog").innerHTML +=
-                            JournalEntry.makeJournalEntryComponent(entry.date, entry.concept, entry.entry, entry.mood, entry.id)
-                    } else {
-
-
-                    }
-                })
-            })
+        .then(parsedEntries => {
+          document.querySelector(".entryLog").innerHTML = ""
+              parsedEntries.forEach(entry => {
+                //    if (entry.date) {
+                document.querySelector(".entryLog").innerHTML +=
+                    JournalEntry.makeJournalEntryComponent(entry.date, entry.concept, entry.entry, entry.mood, entry.id)
+                 }
+              )
+        }
+     )
     }
 }
 
